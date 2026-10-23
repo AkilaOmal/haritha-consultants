@@ -114,10 +114,6 @@
   color: rgba(237, 244, 255, 0.82);
 }
 
-.page-shell.dark .site-footer .brand-mark {
-  color: #ffffff;
-}
-
 .page-shell.dark .site-footer .footer-bottom {
   border-top-color: rgba(255, 255, 255, 0.12);
 }
@@ -229,16 +225,11 @@
   font-weight: 700;
 }
 
-.brand-mark {
-  width: 38px;
-  height: 38px;
-  display: grid;
-  place-items: center;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--navy), #1a3657);
-  color: var(--white);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+.brand-logo {
+  display: block;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
 }
 
 .brand-text {
