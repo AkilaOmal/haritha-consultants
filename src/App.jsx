@@ -229,7 +229,7 @@ function App() {
       <header className="topbar">
         <div className="container nav-bar">
           <a href="#home" className="brand" aria-label="Haritha Consultants home">
-            <span className="brand-mark">HC</span>
+            <img className="brand-logo" src="/haritha-logo.png" alt="" />
             <span className="brand-text">Haritha Consultants</span>
           </a>
 
@@ -619,7 +619,7 @@ function App() {
         <div className="container footer-grid">
           <div>
             <a href="#home" className="brand footer-brand">
-              <span className="brand-mark">HC</span>
+              <img className="brand-logo" src="/haritha-logo.png" alt="" />
               <span className="brand-text">Haritha Consultants</span>
             </a>
             <p>
