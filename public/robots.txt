@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haritha.co.uk/sitemap.xml
