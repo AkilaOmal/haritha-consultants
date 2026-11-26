@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ServicePage from './pages/ServicePage.jsx';
 import emailjs from '@emailjs/browser';
 import {
   ArrowRight,
@@ -170,7 +172,7 @@ const initialForm = {
   message: '',
 };
 
-function App() {
+function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [theme, setTheme] = useState('light');
   const [formData, setFormData] = useState(initialForm);
@@ -658,6 +660,15 @@ function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/services/:slug" element={<ServicePage />} />
+    </Routes>
   );
 }
 
