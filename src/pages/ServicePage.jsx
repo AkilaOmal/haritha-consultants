@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { services } from '../data/services';
+import './ServicePage.css';
 
 function ServicePage() {
   const { slug } = useParams();
@@ -10,7 +12,7 @@ function ServicePage() {
 
   if (!service) {
     return (
-      <main>
+      <main className="section container">
         <h1>Service Not Found</h1>
         <Link to="/">Back to Home</Link>
       </main>
@@ -18,12 +20,43 @@ function ServicePage() {
   }
 
   return (
-    <main>
-      <h1>{service.title}</h1>
+    <main className="service-page">
 
-      <p>{service.description}</p>
+      {/* Service Hero */}
+      <section className="service-hero">
+        <div className="container">
 
-      <Link to="/">Back to Home</Link>
+          <div className="service-breadcrumb">
+            <Link to="/">Home</Link>
+            <span> / </span>
+            <a href="/#services">Services</a>
+            <span> / {service.title}</span>
+          </div>
+
+          <span className="service-label">
+            Engineering Consultancy
+          </span>
+
+          <h1>{service.title}</h1>
+
+          <p>{service.description}</p>
+
+          <a href="/#contact" className="service-cta">
+            Discuss Your Project
+            <ArrowRight size={18} />
+          </a>
+
+        </div>
+      </section>
+
+      {/* Service Overview */}
+      <section className="section">
+        <div className="container">
+          <h2>Service Overview</h2>
+          <p>{service.description}</p>
+        </div>
+      </section>
+
     </main>
   );
 }
