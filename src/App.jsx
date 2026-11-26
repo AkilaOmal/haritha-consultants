@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ServicePage from './pages/ServicePage.jsx';
 import emailjs from '@emailjs/browser';
+import Layout from './components/Layout.jsx';
 import {
   ArrowRight,
   Building2,
@@ -13,13 +14,13 @@ import {
   Leaf,
   Mail,
   MapPin,
-  Menu,
-  MoonStar,
+  
+  
   Phone,
   ShieldCheck,
   Sparkles,
   SunMedium,
-  X,
+  
 } from 'lucide-react';
 import './App.css';
 
@@ -173,8 +174,7 @@ const initialForm = {
 };
 
 function HomePage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [theme, setTheme] = useState('light');
+  
   const [formData, setFormData] = useState(initialForm);
   const [status, setStatus] = useState({ type: 'idle', message: '' });
 
@@ -227,48 +227,8 @@ function HomePage() {
   };
 
   return (
-    <div className={`page-shell ${theme}`}>
-      <header className="topbar">
-        <div className="container nav-bar">
-          <a href="#home" className="brand" aria-label="Haritha Consultants home">
-           <img src="/haritha-logo.webp" alt="Haritha Consultants" />
-            <span className="brand-text">Haritha Consultants</span>
-          </a>
-
-          <nav className={`nav ${menuOpen ? 'open' : ''}`} aria-label="Main navigation">
-            {navItems.map((item) => (
-              <a key={item.label} href={item.href} onClick={() => setMenuOpen(false)}>
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="nav-actions">
-            <button
-              type="button"
-              className="theme-toggle"
-              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-              onClick={() => setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))}
-            >
-              {theme === 'light' ? <MoonStar size={18} /> : <SunMedium size={18} />}
-              <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
-            </button>
-
-            <a className="primary-btn nav-cta" href="#contact">
-              Request a Quote
-            </a>
-          </div>
-
-          <button
-            type="button"
-            className="menu-toggle"
-            aria-label="Toggle navigation"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
-      </header>
+    
+      
 
       <main>
         <section className="hero section" id="home">
@@ -617,57 +577,21 @@ function HomePage() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
-            <a href="#home" className="brand footer-brand">
-              <img src="/haritha-logo.webp" alt="Haritha Consultants" />
-              <span className="brand-text">Haritha Consultants</span>
-            </a>
-            <p>
-              Professional MEP design and building performance consultancy for commercial,
-              residential, and sustainable projects.
-            </p>
-          </div>
-
-          <div>
-            <h3>Quick links</h3>
-            <ul>
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <a href={item.href}>{item.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3>Contact</h3>
-            <ul>
-              <li>
-                <a href="mailto:info@haritha.co.uk">info@haritha.co.uk</a>
-              </li>
-              <li>
-                <a href="tel:+447402942751">+44 7402 947251</a>
-              </li>
-              <li>London, UK</li>
-            </ul>
-          </div>
-        </div>
-        <div className="container footer-bottom">
-          <span>© 2026 Haritha Consultants</span>
-          <span>Designed for engineering excellence</span>
-        </div>
-      </footer>
-    </div>
+     
+    
   );
 }
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/services/:slug" element={<ServicePage />} />
+      <Route element={<Layout />}>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/services/:slug"
+          element={<ServicePage />}
+        />
+      </Route>
     </Routes>
   );
 }
